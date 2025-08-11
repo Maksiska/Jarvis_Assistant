@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.log
+*.tmp
+*.bak
+.vscode/
+.idea/
+qdrant_storage/
+*.sqlite
+Thumbs.db
+.DS_Store
+Ollama/
+Ollama.rar
