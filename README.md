@@ -32,8 +32,8 @@ Jarvis_Assistant/
 ├── core/
 │ ├── actions.py
 │ ├── agent.py
-│ ├── command_router.py # <-- обновлённый файл с поддержкой SQLite
-│ ├── db.py # <-- новый файл с логикой SQLite
+│ ├── command_router.py
+│ ├── db.py 
 │ ├── memory.py
 │ ├── semantic_cleaner.py
 │
