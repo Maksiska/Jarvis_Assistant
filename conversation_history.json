@@ -1,0 +1,762 @@
+[
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Запускаю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Запускаю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Запускаю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Неизвестный тип действия."
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Неизвестный тип действия."
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Запускаю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Неизвестный тип действия."
+  },
+  {
+    "role": "user",
+    "content": "открой калькулятор"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой калькулятор"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой калькулятор"
+  },
+  {
+    "role": "user",
+    "content": "открой калькулятор"
+  },
+  {
+    "role": "user",
+    "content": "открой калькулятор"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Запускаю!"
+  },
+  {
+    "role": "user",
+    "content": "открой кинопоиск"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Запускаю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Открываю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "❌ Ошибка генерации вектора команды."
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "❌ Ошибка генерации вектора команды."
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "❌ Ошибка генерации вектора команды."
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "❌ Ошибка генерации вектора команды."
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "❌ Ошибка генерации вектора команды."
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Открываю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Открываю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку gam"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Открываю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Открываю!"
+  },
+  {
+    "role": "user",
+    "content": "открой папку game"
+  },
+  {
+    "role": "bot",
+    "content": "Открываю!"
+  },
+  {
+    "role": "user",
+    "content": "скажи что-нибудь"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "скажи что-нибудь"
+  },
+  {
+    "role": "user",
+    "content": "скажи что-нибудь"
+  },
+  {
+    "role": "user",
+    "content": "скажи что-нибудь"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "скажи что-нибудь"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "скажи что-нибудь"
+  },
+  {
+    "role": "user",
+    "content": "открой whatsapp"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Запускаю!"
+  },
+  {
+    "role": "user",
+    "content": "открой кинопоиск"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой кинопоиск"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "запустите lego"
+  },
+  {
+    "role": "user",
+    "content": "запусти телегу"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "❌ Ошибка генерации вектора команды."
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "❌ Ошибка генерации вектора команды."
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой кинопоиск"
+  },
+  {
+    "role": "bot",
+    "content": "Открываю!"
+  },
+  {
+    "role": "user",
+    "content": "открой telegram"
+  },
+  {
+    "role": "bot",
+    "content": "Запускаю!"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Есть!"
+  },
+  {
+    "role": "user",
+    "content": "открой оперу"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Есть!"
+  },
+  {
+    "role": "user",
+    "content": "открой кино"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой кинопоиск"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Есть!"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Есть!"
+  },
+  {
+    "role": "user",
+    "content": "открой"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Есть!"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Выполняю!"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  },
+  {
+    "role": "user",
+    "content": "открой браузер"
+  },
+  {
+    "role": "bot",
+    "content": "Непонятное действие"
+  }
+]
