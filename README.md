@@ -55,7 +55,7 @@ Jarvis_Assistant/
 │ ├── text_output.py
 │ ├── speech_output.py
 │
-├── gui_main.py
+├── main.py
 ├── .env
 ```
 ---
@@ -64,5 +64,7 @@ Jarvis_Assistant/
 ```
 git clone https://github.com/yourname/Jarvis_Assistant.git
 cd Jarvis_Assistant
+python -m venv .venv
+.\.venv\Scripts\activate 
 pip install -r requirements.txt
 ```
