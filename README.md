@@ -29,7 +29,7 @@ Jarvis Assistant:
 ---
 
 ## 🗂 Структура проекта
-
+```
 Jarvis_Assistant/
 ├── core/
 │ ├── actions.py
@@ -59,7 +59,7 @@ Jarvis_Assistant/
 │
 ├── gui_main.py
 ├── .env
-
+```
 ---
 
 ## 📦 Установка
