@@ -1,5 +1,7 @@
 import re
 import json
+import os
+import sys
 
 def clean_text(text) -> str:
     if not isinstance(text, str):
@@ -22,6 +24,15 @@ def normalize_text_for_vector(text: str) -> str:
     text = clean_text(text)
     text = re.sub(r'[^\w\s]', '', text.lower())
     return text
+
+def resource_path(relative_path):
+    """ Получить путь к ресурсу (работает и для .exe) """
+    try:
+        # PyInstaller создает временную папку и кладёт в _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 def extract_json_from_text(text: str):
     """Return a JSON object parsed from a text that may contain extra text."""
