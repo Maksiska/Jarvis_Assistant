@@ -17,3 +17,4 @@ jarvis.sqlite3
 dist/
 build/
 JarvisAssistant.spec
+installer/
