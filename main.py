@@ -259,17 +259,23 @@ class ChatApp(QWidget):
 def launch_llama_model(model="llama3.1:latest"):
     if os.getenv("USE_OLLAMA_HTTP", "false").lower() == "true":
         return
-    ollama_path = os.path.join(os.getcwd(), "ollama", "ollama.exe")
+
+    # Используем правильный путь
+    ollama_exe = os.path.join(resource_path("Ollama"), "ollama.exe")
+
     try:
         print(f"🚀 Проверяем наличие модели LLM: {model}")
-        result = subprocess.run([ollama_path, "list"], capture_output=True, text=True)
+        result = subprocess.run([ollama_exe, "list"], capture_output=True, text=True)
+
         if model not in result.stdout:
             print(f"📥 Модель {model} не найдена. Загружаем...")
-            subprocess.run([ollama_path, "pull", model], check=True)
+            subprocess.run([ollama_exe, "pull", model], check=True)
             print(f"✅ Модель {model} успешно загружена")
+
         print(f"🚀 Запускаем модель LLM: {model}")
-        subprocess.Popen([ollama_path, "run", model],
-                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.Popen([ollama_exe, "run", model],
+                         stdout=subprocess.DEVNULL,
+                         stderr=subprocess.DEVNULL)
     except Exception as e:
         print(f"❌ Не удалось запустить модель: {e}")
 
