@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 from core.agent import process_input
 from input.vad import listen_full_phrase
 from utils.constants import EXIT_COMMANDS
-
+from output.speech_output import speak   # ⬅️ добавили
 
 # ---------- Утилиты нормализации ----------
 def _normalize_text(s: str) -> str:
@@ -27,10 +27,8 @@ def _normalize_text(s: str) -> str:
     s = re.sub(r"\s+", " ", s).strip()
     return s
 
-
 def _normalize_set(items) -> set[str]:
     return {_normalize_text(x) for x in items if isinstance(x, str) and x.strip()}
-
 
 # ---------- Виджет сообщения ----------
 class ChatMessage(QWidget):
@@ -59,7 +57,6 @@ class ChatMessage(QWidget):
     def set_text(self, text: str):
         self.label.setText(str(text))
 
-
 # ---------- One-shot поток прослушивания ----------
 class ListenerWorker(QThread):
     heard = pyqtSignal(str)
@@ -80,7 +77,6 @@ class ListenerWorker(QThread):
     def stop(self):
         self._stop_event.set()
 
-
 # ---------- Поток выполнения команды (LLM/роутер/действия) ----------
 class ExecWorker(QThread):
     done = pyqtSignal(str)  # reply
@@ -96,10 +92,46 @@ class ExecWorker(QThread):
             reply = f"Не смог выполнить запрос. {e}"
         self.done.emit(reply or "Готово.")
 
+# ---------- Поток TTS, чтобы не фризить GUI ----------
+# В вашем gui_main.py — класс TtsWorker оставляем, НО дополняем run():
+
+class TtsWorker(QThread):
+    finished_tts = pyqtSignal()
+
+    def __init__(self, text: str, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self._text = text
+
+    def run(self):
+        # >>> ДОБАВЛЕНО: безопасная инициализация COM под Windows
+        com_inited = False
+        try:
+            import sys
+            if sys.platform.startswith("win"):
+                try:
+                    import pythoncom
+                    pythoncom.CoInitialize()
+                    com_inited = True
+                except Exception:
+                    pass
+
+            # обычная озвучка (движок создаётся внутри speak)
+            from output.speech_output import speak
+            speak(self._text)
+        finally:
+            # корректно завершаем COM, если инициализировали
+            if com_inited:
+                try:
+                    import pythoncom
+                    pythoncom.CoUninitialize()
+                except Exception:
+                    pass
+            self.finished_tts.emit()
+
 
 # ---------- Главное окно ----------
 class ChatApp(QWidget):
-    COOLDOWN_MS = 1200  # задержка перед возобновлением прослушивания
+    COOLDOWN_MS = 1200  # задержка перед повторным прослушиванием
 
     def __init__(self):
         super().__init__()
@@ -109,6 +141,7 @@ class ChatApp(QWidget):
 
         self._listener_thread: Optional[ListenerWorker] = None
         self._exec_worker: Optional[ExecWorker] = None
+        self._tts_worker: Optional[TtsWorker] = None
         self._listening: bool = False    # флаг режима авто-прослушки
         self.oldPos = None
 
@@ -171,7 +204,7 @@ class ChatApp(QWidget):
         self.chat_list.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         main_layout.addWidget(self.chat_list)
 
-        # Зона управления: стэк из (Start-кнопка) и (лейбл «Слушаю…»)
+        # Зона управления
         self.control_host = QWidget()
         self.control_stack = QStackedLayout(self.control_host)
 
@@ -227,7 +260,6 @@ class ChatApp(QWidget):
 
     # --- Управление прослушкой ---
     def _on_start_clicked(self):
-        # показываем лейбл «Слушаю…» и запускаем первый one-shot слушатель
         self.control_stack.setCurrentIndex(1)
         self._start_listening()
 
@@ -239,14 +271,13 @@ class ChatApp(QWidget):
         th.heard.connect(self.handle_user_message)
         th.finished_once.connect(self._on_listener_finished_once)
         self._listener_thread = th
-        QTimer.singleShot(0, th.start)  # не блокируем главный цикл
+        QTimer.singleShot(0, th.start)
 
     def _pause_listening(self):
         """Остановить текущий поток прослушивания (оставляя лейбл «Слушаю…»)."""
         self._listening = False
         if self._listener_thread is not None:
             self._listener_thread.stop()
-            # Дадим до 500 мс на корректное завершение потока
             self._listener_thread.wait(500)
             self._listener_thread = None
 
@@ -265,7 +296,6 @@ class ChatApp(QWidget):
             self._listener_thread = None
 
     def _on_listener_finished_once(self):
-        # one-shot завершился; перезапустим, если режим активен
         self._listener_thread = None
         if self._listening:
             QTimer.singleShot(0, self._start_listening)
@@ -279,40 +309,44 @@ class ChatApp(QWidget):
 
     # --- Логика чата ---
     def handle_user_message(self, text: str):
-        # 1) Сразу показать сообщение пользователя
+        # 1) Показать сообщение пользователя
         self._add_message(text, is_user=True)
         self.chat_list.scrollToBottom()
 
-        # 2) Стоп-команда — полностью выключаем слушание (и кнопку вернём)
+        # 2) Если стоп — выключаем прослушку
         if self._is_exit_command(text):
             self._add_message("🛑 Останавливаю прослушивание.", is_user=False)
             self._stop_listening()
             return
 
-        # 3) Остановить прослушивание, чтобы не ловить собственную озвучку/накладки
+        # 3) Пауза прослушивания, чтобы не ловить собственную озвучку
         self._pause_listening()
 
-        # 4) Поставить статус «Обрабатываю…»
+        # 4) Статус «Обрабатываю…»
         status_item, status_widget = self._add_message_widget("Обрабатываю…", is_user=False)
 
-        # 5) Запустить обработку в отдельном QThread (чтобы UI не зависал)
+        # 5) Выполнение команды в отдельном потоке
         self._exec_worker = ExecWorker(text, self)
         self._exec_worker.done.connect(lambda reply: self._on_exec_finished(reply, status_item, status_widget))
         self._exec_worker.start()
 
     def _on_exec_finished(self, reply: str, status_item: QListWidgetItem, status_widget: ChatMessage):
-        # 6) Сменить «Обрабатываю…» на «Выполняю…»
+        # 6) Обновить статус
         status_widget.set_text("Выполняю…")
 
-        # 7) Добавить финальный ответ
+        # 7) Добавить финальный ответ (это то, что будем озвучивать)
         self._add_message(reply or "Готово.", is_user=False)
         self.chat_list.scrollToBottom()
 
-        # 8) Удалить статус через короткую паузу, чтобы смена была видна
+        # 8) Удалить статус через короткую паузу (визуальный переход)
         QTimer.singleShot(600, lambda: self._remove_item(status_item))
 
-        # 9) Небольшой кулдаун — даём системе «ожить» и снова слушаем
-        QTimer.singleShot(self.COOLDOWN_MS, self._resume_listening)
+        # 9) Озвучиваем ответ в отдельном потоке и только ПОСЛЕ — возобновляем слушание
+        self._tts_worker = TtsWorker(reply or "Готово.", self)
+        self._tts_worker.finished_tts.connect(
+            lambda: QTimer.singleShot(self.COOLDOWN_MS, self._resume_listening)
+        )
+        self._tts_worker.start()
 
     # --- Вспомогательные методы чата ---
     def _add_message(self, text: str, is_user: bool):
@@ -334,7 +368,6 @@ class ChatApp(QWidget):
     def generate_reply(self, user_input: str) -> str:
         return process_input(user_input)
 
-
 # ---------- Запуск локальной модели ----------
 def launch_llama_model(model: str = "llama3.1:latest"):
     if os.getenv("USE_OLLAMA_HTTP", "false").lower() == "true":
@@ -352,7 +385,6 @@ def launch_llama_model(model: str = "llama3.1:latest"):
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except Exception as e:
         print(f"❌ Не удалось запустить модель: {e}")
-
 
 if __name__ == "__main__":
     load_dotenv()
