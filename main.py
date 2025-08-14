@@ -17,7 +17,10 @@ from dotenv import load_dotenv
 from core.agent import process_input
 from input.vad import listen_full_phrase
 from utils.constants import EXIT_COMMANDS
-from output.speech_output import speak   # ⬅️ добавили
+
+from utils.helpers import resource_path
+from output.speech_output import speak   
+
 
 # ---------- Утилиты нормализации ----------
 def _normalize_text(s: str) -> str:
@@ -159,7 +162,7 @@ class ChatApp(QWidget):
         header_layout.setColumnStretch(2, 1)
 
         self.logo_label = QLabel()
-        self.logo_label.setPixmap(QPixmap("gui\\logo.png"))
+        self.logo_label.setPixmap(QPixmap(resource_path("images/logo.png")))
         self.logo_label.setFixedSize(200, 36)
         self.logo_label.setScaledContents(True)
         self.logo_label.setStyleSheet("background-color: transparent;")
@@ -176,14 +179,14 @@ class ChatApp(QWidget):
 
         self.min_btn = QPushButton()
         self.min_btn.setFixedSize(20, 20)
-        self.min_btn.setIcon(QIcon("gui\\minimize.png"))
+        self.min_btn.setIcon(QIcon(resource_path("images/minimize.png")))
         self.min_btn.setIconSize(self.min_btn.size())
         self.min_btn.setStyleSheet("background-color: transparent; border: none;")
         self.min_btn.clicked.connect(self.showMinimized)
 
         self.close_btn = QPushButton()
         self.close_btn.setFixedSize(20, 20)
-        self.close_btn.setIcon(QIcon("gui\\close.png"))
+        self.close_btn.setIcon(QIcon(resource_path("images/close.png")))
         self.close_btn.setIconSize(self.close_btn.size())
         self.close_btn.setStyleSheet("background-color: transparent; border: none;")
         self.close_btn.clicked.connect(self.close)

@@ -14,3 +14,6 @@ Thumbs.db
 Ollama/
 Ollama.rar
 jarvis.sqlite3
+dist/
+build/
+JarvisAssistant.spec
