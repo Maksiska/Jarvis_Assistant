@@ -62,7 +62,7 @@ Jarvis_Assistant/
 
 ## 📦 Установка
 ```
-git clone https://github.com/yourname/Jarvis_Assistant.git
+git clone https://github.com/*yourname*/Jarvis_Assistant.git
 cd Jarvis_Assistant
 python -m venv .venv
 .\.venv\Scripts\activate 
