@@ -11,3 +11,4 @@ recognizer
 chromadb 
 numpy 
 sentence-transformers
+PyQt6
